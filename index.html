@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Moe's — bar e pizzeria a Niguarda, dalle 7 a mezzanotte</title>
+<meta name="description" content="Moe's, via Privata Paolo Rotta 10, Niguarda, Milano. Cappuccino dalle sette, piadine e pizza, birre artigianali e aperitivo fino a mezzanotte. Menù del giorno da 9 €.">
+<link rel="canonical" href="https://rotenzark.github.io/moes-niguarda/">
+<meta property="og:type" content="restaurant">
+<meta property="og:title" content="Moe's — dalle sette a mezzanotte, Niguarda">
+<meta property="og:description" content="Cappuccino, piadine, pizza, birre artigianali e aperitivo. Una porta sola, diciassette ore.">
+<meta property="og:url" content="https://rotenzark.github.io/moes-niguarda/">
+<meta property="og:image" content="https://rotenzark.github.io/moes-niguarda/img/og.jpg">
+<meta property="og:locale" content="it_IT">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Moe's — dalle sette a mezzanotte, Niguarda">
+<meta name="twitter:description" content="Cappuccino, piadine, pizza, birre artigianali e aperitivo. Una porta sola, diciassette ore.">
+<meta name="twitter:image" content="https://rotenzark.github.io/moes-niguarda/img/og.jpg">
+<meta name="theme-color" content="#1B1F2A">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="img/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hepta+Slab:wght@400;600;800;900&family=Signika:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css?v=1">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"Restaurant","name":"Moe's",
+  "description":"Bar e pizzeria a Niguarda, Milano. Colazione dalle sette, piadine, pizza, birre artigianali e aperitivo fino a mezzanotte.",
+  "url":"https://rotenzark.github.io/moes-niguarda/",
+  "telephone":"+39 02 39461172",
+  "servesCuisine":["Pizza","Piadina","Caffetteria","Aperitivo"],
+  "priceRange":"€€",
+  "image":"https://rotenzark.github.io/moes-niguarda/img/banco.jpg",
+  "address":{"@type":"PostalAddress","streetAddress":"Via Privata Paolo Rotta 10","addressLocality":"Milano","postalCode":"20162","addressCountry":"IT"},
+  "geo":{"@type":"GeoCoordinates","latitude":45.5163515,"longitude":9.1893019},
+  "openingHoursSpecification":[
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"07:00","closes":"14:30"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday"],"opens":"08:00","closes":"13:00"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"17:00","closes":"00:00"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"A che ora aprite?","acceptedAnswer":{"@type":"Answer","text":"Dal lunedì al venerdì alle 7 del mattino, il sabato alle 8. Poi si chiude alle 14:30 e si riapre alle 17, fino a mezzanotte. La domenica siamo aperti solo la sera, dalle 17."}},
+    {"@type":"Question","name":"Fate colazione?","acceptedAnswer":{"@type":"Answer","text":"Sì. Alle sette del mattino il banco è quello di un bar: caffè, cappuccino e brioche. È la parte di noi che quasi nessuno si aspetta."}},
+    {"@type":"Question","name":"C'è un menù del giorno?","acceptedAnswer":{"@type":"Answer","text":"Sì, ed è scritto sulla lavagna in sala: piatto unico 9 €, menù completo 10 €, bevande escluse. Cambia, quindi conviene chiamare per sapere cosa c'è oggi."}},
+    {"@type":"Question","name":"Si può stare fuori?","acceptedAnswer":{"@type":"Answer","text":"Sì, ci sono tavolini e sgabelli sul marciapiede davanti al locale, sotto la tenda."}},
+    {"@type":"Question","name":"Bisogna prenotare?","acceptedAnswer":{"@type":"Answer","text":"La sala è grande e spesso si trova posto anche senza, ma nelle sere piene la prenotazione è consigliata: basta una telefonata al 02 39461172."}},
+    {"@type":"Question","name":"Avete birre artigianali?","acceptedAnswer":{"@type":"Answer","text":"Sì, oltre alle spine classiche teniamo una selezione di birre artigianali, e dietro al banco c'è anche la parte cocktail: lo spritz è a 3 €."}}
+  ]
+}
+</script>
+</head>
+<body>
+
+<div id="intro" class="intro" aria-hidden="true">
+  <div class="intro__tenda"></div>
+  <p class="intro__parole"><span>Piadavino</span><span>Cappuccino</span></p>
+  <button type="button" id="introSkip" class="intro__skip" data-i18n="intro.skip">salta</button>
+</div>
+
+<!-- striscia persistente: orari + telefono, sempre a schermo -->
+<div class="nastro">
+  <span id="orarioStato" class="nastro__stato">Controllo gli orari…</span>
+  <a class="nastro__tel" href="tel:+390239461172">02 39461172</a>
+</div>
+
+<header id="site-header" class="testata">
+  <a class="marchio" href="#cima">Moe's</a>
+  <nav id="mainNav" class="nav" aria-label="Menu principale">
+    <a href="#giornata" data-i18n="nav.giornata">La giornata</a>
+    <a href="#carta" data-i18n="nav.carta">Le pizze</a>
+    <a href="#sala" data-i18n="nav.sala">La sala</a>
+    <a href="#dove" data-i18n="nav.dove">Dove siamo</a>
+  </nav>
+  <div class="testata__coda">
+    <div class="lingue" role="group" aria-label="Lingua / Language">
+      <button type="button" data-lang="it" class="is-on" aria-pressed="true">IT</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+    <button type="button" id="burger" class="burger" aria-expanded="false" aria-controls="mobile-menu" aria-label="Apri il menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div id="mobile-menu" class="drawer" hidden>
+  <a href="#giornata" data-i18n="nav.giornata">La giornata</a>
+  <a href="#carta" data-i18n="nav.carta">Le pizze</a>
+  <a href="#sala" data-i18n="nav.sala">La sala</a>
+  <a href="#voci" data-i18n="nav.voci">Recensioni</a>
+  <a href="#dove" data-i18n="nav.dove">Dove siamo</a>
+  <a class="drawer__cta" href="tel:+390239461172">02 39461172</a>
+</div>
+
+<main id="cima">
+
+  <!-- ══ HERO: la tenda. Orizzontale, non un elenco. ══ -->
+  <section class="apertura" aria-labelledby="apertura-titolo">
+    <div class="tenda" aria-hidden="true">
+      <div class="tenda__telo"></div>
+      <svg class="tenda__festone" viewBox="0 0 1200 26" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0,0 Q25,26 50,0 Q75,26 100,0 Q125,26 150,0 Q175,26 200,0 Q225,26 250,0 Q275,26 300,0 Q325,26 350,0 Q375,26 400,0 Q425,26 450,0 Q475,26 500,0 Q525,26 550,0 Q575,26 600,0 Q625,26 650,0 Q675,26 700,0 Q725,26 750,0 Q775,26 800,0 Q825,26 850,0 Q875,26 900,0 Q925,26 950,0 Q975,26 1000,0 Q1025,26 1050,0 Q1075,26 1100,0 Q1125,26 1150,0 Q1175,26 1200,0 L1200,0 L0,0 Z"/>
+      </svg>
+      <p class="tenda__parole"><span>Piadavino</span><b>·</b><span>Cappuccino</span></p>
+    </div>
+
+    <div class="apertura__testo">
+      <h1 id="apertura-titolo">
+        <span class="apertura__riga" data-i18n="hero.r1">Sulla nostra tenda</span>
+        <span class="apertura__riga apertura__riga--forte" data-i18n="hero.r2">c'è scritto tutto</span>
+      </h1>
+      <p class="apertura__p" data-i18n="hero.p">Cappuccino alle sette del mattino, piadine e pizza a mezzogiorno, spina e spritz fino a mezzanotte. Una porta sola, in via Paolo Rotta, aperta <b>diciassette ore</b>.</p>
+      <p class="apertura__azioni">
+        <a class="pulsante pulsante--pieno" href="tel:+390239461172" data-i18n="hero.cta1">Chiama e prenota</a>
+        <a class="pulsante" href="#carta" data-i18n="hero.cta2">Guarda le pizze</a>
+      </p>
+    </div>
+
+    <figure class="apertura__foto">
+      <img src="img/banco.jpg" width="1600" height="1057" decoding="async" alt="Il banco bar di Moe's: tre persone dello staff col cappellino Moe's Milano, la macchina espresso e le bottiglie alle spalle">
+    </figure>
+  </section>
+
+  <!-- ══ MANIFESTO ══ -->
+  <section class="detto reveal" aria-label="Una recensione">
+    <blockquote>
+      <p data-i18n="detto.cit">«Anche se i panini non erano previsti nel menù, hanno avuto la gentilezza di prepararmene uno per accontentarmi, ed è stato semplicemente buonissimo.»</p>
+      <cite data-i18n="detto.chi">Viviana Pedone — recensione su Google</cite>
+    </blockquote>
+    <p class="detto__coda" data-i18n="detto.coda">Non è una cosa che si può mettere nel menù. È il motivo per cui qui la gente torna.</p>
+  </section>
+
+  <!-- ══ LA GIORNATA — a parole, non a griglia ══ -->
+  <section id="giornata" class="giornata" aria-labelledby="giornata-titolo">
+    <div class="giornata__testa reveal">
+      <p class="etichetta" data-i18n="gio.eti">Diciassette ore</p>
+      <h2 id="giornata-titolo" data-i18n="gio.titolo">La stessa porta, cinque momenti diversi</h2>
+    </div>
+    <div class="giornata__bande">
+      <article class="banda reveal">
+        <h3 data-i18n="gio.1t">Le sette</h3>
+        <p data-i18n="gio.1p">Si apre da bar. Caffè, cappuccino, brioche al banco. È la parte di noi che quasi nessuno si aspetta, e infatti nelle recensioni le brioche compaiono più di quanto compaia la parola «cena».</p>
+      </article>
+      <article class="banda reveal">
+        <h3 data-i18n="gio.2t">Mezzogiorno</h3>
+        <p data-i18n="gio.2p">Il menù del giorno è scritto sulla lavagna in sala, non su un'app: <b>piatto unico 9 €</b>, <b>menù completo 10 €</b>, bevande escluse. Cambia, quindi conviene chiedere cosa c'è oggi.</p>
+      </article>
+      <article class="banda reveal">
+        <h3 data-i18n="gio.3t">Le cinque</h3>
+        <p data-i18n="gio.3p">Si riapre e comincia l'aperitivo, che nelle recensioni è la parola più citata di tutte. Lo spritz sta a 3 €, e la selezione di birre artigianali va oltre le spine di casa.</p>
+      </article>
+      <article class="banda reveal">
+        <h3 data-i18n="gio.4t">La sera</h3>
+        <p data-i18n="gio.4p">Pizza tonda dal forno, piadine, focacce farcite. La sala è grande e i tavolini stanno anche fuori, sotto la tenda.</p>
+      </article>
+      <article class="banda reveal">
+        <h3 data-i18n="gio.5t">Mezzanotte</h3>
+        <p data-i18n="gio.5p">Si chiude. Tutti i giorni, domenica compresa — l'unica differenza è che la domenica il mattino non c'è.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ══ LE PIZZE ══ -->
+  <section id="carta" class="carta" aria-labelledby="carta-titolo">
+    <div class="carta__testa reveal">
+      <p class="etichetta" data-i18n="car.eti">La carta</p>
+      <h2 id="carta-titolo" data-i18n="car.titolo">Venti pizze, e i nomi se li sono inventati loro</h2>
+      <p data-i18n="car.p">Si parte da sei euro. Qui sotto ce n'è una parte: la lista intera è più lunga, e comprende anche piadine, focacce farcite e i dolci della casa a 3,50 €.</p>
+    </div>
+    <ul class="listino reveal">
+      <li><span class="pz">Margherita</span><span class="ig" data-i18n="pz.margherita">pomodoro, mozzarella, basilico</span><span class="pr">6,00</span></li>
+      <li><span class="pz">Antico Napoli</span><span class="ig" data-i18n="pz.napoli">pomodoro, filetti di alici, aglio, olive leccine, basilico, origano</span><span class="pr">6,00</span></li>
+      <li><span class="pz">Würstel</span><span class="ig" data-i18n="pz.wurstel">pomodoro, mozzarella, würstel</span><span class="pr">6,50</span></li>
+      <li><span class="pz">Bucatini</span><span class="ig" data-i18n="pz.bucatini">pomodoro, cipolla tritata, guanciale, pecorino romano, pepe</span><span class="pr">7,00</span></li>
+      <li><span class="pz">Bufala</span><span class="ig" data-i18n="pz.bufala">pomodoro, bufala campana, basilico</span><span class="pr">8,00</span></li>
+      <li><span class="pz">Friarielli</span><span class="ig" data-i18n="pz.friarielli">provola, friarielli, salsiccia, grana</span><span class="pr">8,00</span></li>
+      <li><span class="pz">Arlecchino</span><span class="ig" data-i18n="pz.arlecchino">mozzarella, olive, pomodorini, pesto e granella di pistacchio</span><span class="pr">8,00</span></li>
+      <li><span class="pz">Anni '80</span><span class="ig" data-i18n="pz.anni80">pomodoro, mozzarella, prosciutto cotto, funghi, carciofi, olive</span><span class="pr">8,50</span></li>
+      <li><span class="pz">Norma</span><span class="ig" data-i18n="pz.norma">pomodoro, mozzarella, melanzana fritta, ricotta salata grattugiata</span><span class="pr">8,50</span></li>
+      <li><span class="pz">Montanara</span><span class="ig" data-i18n="pz.montanara">pomodoro, mozzarella, taleggio, speck</span><span class="pr">9,00</span></li>
+      <li><span class="pz">Pizzica</span><span class="ig" data-i18n="pz.pizzica">mozzarella, pomodorini, filetti d'alici, origano, burrata</span><span class="pr">10,00</span></li>
+      <li class="listino__casa"><span class="pz">Moe's</span><span class="ig" data-i18n="pz.moes">provola affumicata, salame piccante, melanzane fritte, crema di ricotta, basilico</span><span class="pr">11,00</span></li>
+      <li><span class="pz">Sta curcia</span><span class="ig" data-i18n="pz.stacurcia">pomodoro, mozzarella, zola, 'nduja, salame piccante, peperoni, olive</span><span class="pr">11,00</span></li>
+      <li><span class="pz">Stella alpina</span><span class="ig" data-i18n="pz.stella">pomodoro, mozzarella, funghi porcini, bresaola, rosmarino</span><span class="pr">11,50</span></li>
+      <li><span class="pz">Perfetta</span><span class="ig" data-i18n="pz.perfetta">pomodoro, bufala, rucola, pomodorini, crudo di Parma, scaglie di grana, riduzione d'aceto balsamico</span><span class="pr">12,00</span></li>
+      <li><span class="pz">Pistacchio</span><span class="ig" data-i18n="pz.pistacchio">focaccia con mortadella, burrata, pesto e granella di pistacchio</span><span class="pr">12,00</span></li>
+    </ul>
+    <p class="carta__nota reveal" data-i18n="car.nota">Prezzi pubblicati sulla nostra scheda Google. <b>Dolci della casa 3,50 €</b>: piadina alla Nutella, tiramisù della casa, tartufo nero, gelato alla crema.</p>
+  </section>
+
+  <!-- ══ LA SALA ══ -->
+  <section id="sala" class="sala" aria-labelledby="sala-titolo">
+    <div class="sala__testo reveal">
+      <p class="etichetta" data-i18n="sal.eti">Il posto</p>
+      <h2 id="sala-titolo" data-i18n="sal.titolo">«Bar di periferia, buon punto di riferimento»</h2>
+      <p data-i18n="sal.p1">L'ha scritto un cliente su Google, ed è la definizione migliore che potessimo ricevere. La sala è grande, il pavimento è di legno, alle pareti ci sono le maglie da calcio incorniciate e una fotografia di Niguarda di quando qui c'era la gelateria Bianchi.</p>
+      <p data-i18n="sal.p2">Nelle recensioni le parole che tornano più spesso non sono i piatti: sono <b>ambiente</b>, <b>simpatia</b>, <b>cordiale</b>, <b>informale</b>. Messe insieme battono perfino l'aperitivo.</p>
+    </div>
+    <div class="sala__foto">
+      <figure class="reveal"><img src="img/sala.jpg" width="1600" height="1200" decoding="async" alt="La sala di Moe's con la lavagna del menù del giorno, le maglie da calcio incorniciate e la foto d'epoca di Niguarda"></figure>
+      <figure class="reveal"><img src="img/piadine.jpg" width="1200" height="1600" decoding="async" alt="Due piadine farcite su tagliere di legno accanto a una birra artigianale"></figure>
+    </div>
+  </section>
+
+  <!-- ══ GALLERIA ══ -->
+  <section id="galleria" class="galleria reveal" aria-labelledby="galleria-titolo">
+    <h2 id="galleria-titolo" class="galleria__titolo" data-i18n="gal.titolo">Dal banco ai tavoli</h2>
+    <div class="galleria__righe">
+      <button type="button" class="shot" data-full="img/pizze.jpg"><img src="img/pizze.jpg" width="1600" height="900" decoding="async" alt="Tre pizze tonde viste dall'alto sul tavolo di legno"></button>
+      <button type="button" class="shot" data-full="img/perfetta.jpg"><img src="img/perfetta.jpg" width="1300" height="975" decoding="async" alt="La pizza Perfetta con crudo, rucola e scaglie di grana"></button>
+      <button type="button" class="shot" data-full="img/capricciosa.jpg"><img src="img/capricciosa.jpg" width="1200" height="1600" decoding="async" alt="Pizza con prosciutto, carciofi e olive sulla tovaglietta Moe's"></button>
+      <button type="button" class="shot" data-full="img/focaccia.jpg"><img src="img/focaccia.jpg" width="1200" height="1600" decoding="async" alt="Primo piano di una focaccia dal cornicione alveolato"></button>
+      <button type="button" class="shot" data-full="img/bianca.jpg"><img src="img/bianca.jpg" width="1400" height="788" decoding="async" alt="Pizza bianca alle erbe vista dall'alto"></button>
+    </div>
+  </section>
+
+  <!-- ══ RECENSIONI ══ -->
+  <section id="voci" class="voci reveal" aria-labelledby="voci-titolo">
+    <p class="etichetta" data-i18n="voc.eti">Lo dicono loro</p>
+    <h2 id="voci-titolo" data-i18n="voc.titolo">Seicentotré recensioni su Google</h2>
+    <ul class="voci__lista">
+      <li class="voce"><p>«Anche se i panini non erano previsti nel menù, hanno avuto la gentilezza di prepararmene uno per accontentarmi, ed è stato semplicemente buonissimo. Personale gentilissimo, disponibile e cibo eccellente.»</p><span class="voce__chi">Viviana Pedone</span></li>
+      <li class="voce"><p>«Bar di periferia, buon punto di riferimento. Personale cortese.»</p><span class="voce__chi">Mario Licciardi</span></li>
+      <li class="voce"><p>«Moe è una pizzeria buona e sincera, a due passi dalla stazione del tram di Niguarda Centro. Hanno diverse birre artigianali, oltre a quelle 4 luppoli.»</p><span class="voce__chi">Giovanni Paoletti</span></li>
+      <li class="voce"><p>«Locale accogliente e curato, perfetto per una serata informale in compagnia. L'atmosfera è piacevole e rilassata, arricchita da un'ottima selezione di birre artigianali e cocktail ben preparati.»</p><span class="voce__chi">Natascia SARNO</span></li>
+      <li class="voce"><p>«Ottima pizza, prezzi onesti, ambiente simpatico»</p><span class="voce__chi">Massimo Sacchi</span></li>
+    </ul>
+  </section>
+
+  <!-- ══ DOVE ══ -->
+  <section id="dove" class="dove" aria-labelledby="dove-titolo">
+    <div class="dove__testo reveal">
+      <p class="etichetta" data-i18n="dov.eti">Dove siamo</p>
+      <h2 id="dove-titolo" data-i18n="dov.titolo">Via Privata Paolo Rotta 10, Niguarda</h2>
+      <p data-i18n="dov.p">A due passi dalla fermata del tram di <b>Niguarda Centro</b>. Ci si riconosce dalla tenda e dai tavolini sul marciapiede.</p>
+      <table class="orari">
+        <caption data-i18n="dov.cap">Orari di apertura</caption>
+        <tbody>
+          <tr data-day="1"><th scope="row" data-i18n="g.lun">Lunedì</th><td>07:00 – 14:30</td><td>17:00 – 00:00</td></tr>
+          <tr data-day="2"><th scope="row" data-i18n="g.mar">Martedì</th><td>07:00 – 14:30</td><td>17:00 – 00:00</td></tr>
+          <tr data-day="3"><th scope="row" data-i18n="g.mer">Mercoledì</th><td>07:00 – 14:30</td><td>17:00 – 00:00</td></tr>
+          <tr data-day="4"><th scope="row" data-i18n="g.gio">Giovedì</th><td>07:00 – 14:30</td><td>17:00 – 00:00</td></tr>
+          <tr data-day="5"><th scope="row" data-i18n="g.ven">Venerdì</th><td>07:00 – 14:30</td><td>17:00 – 00:00</td></tr>
+          <tr data-day="6"><th scope="row" data-i18n="g.sab">Sabato</th><td>08:00 – 13:00</td><td>17:00 – 00:00</td></tr>
+          <tr data-day="0"><th scope="row" data-i18n="g.dom">Domenica</th><td data-i18n="g.chiuso">chiuso</td><td>17:00 – 00:00</td></tr>
+        </tbody>
+      </table>
+      <p class="dove__azioni">
+        <a class="pulsante pulsante--pieno" href="tel:+390239461172" data-i18n="dov.tel">Telefona: 02 39461172</a>
+        <a class="pulsante" href="https://www.google.com/maps/place/Moe's+Pizza/@45.5163515,9.1893019,17z" target="_blank" rel="noopener" data-i18n="dov.mappa">Apri le indicazioni</a>
+      </p>
+    </div>
+    <div class="dove__lato reveal">
+      <figure class="dove__facciata"><img src="img/facciata.jpg" width="750" height="647" decoding="async" alt="La facciata di Moe's con la tenda e la scritta Piadavino Cappuccino sopra le vetrine"></figure>
+      <iframe title="Mappa di Moe's, via Privata Paolo Rotta 10, Milano" src="https://www.google.com/maps?q=Moe's+Pizza+Via+Privata+Paolo+Rotta+10+20162+Milano&output=embed" width="600" height="320" style="border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </section>
+
+  <!-- ══ FAQ ══ -->
+  <section id="faq" class="faq reveal" aria-labelledby="faq-titolo">
+    <h2 id="faq-titolo" data-i18n="faq.titolo">Quello che ci chiedono al telefono</h2>
+    <div class="faq__lista">
+      <details><summary data-i18n="faq.q1">A che ora aprite?</summary><p data-i18n="faq.a1">Dal lunedì al venerdì alle <b>7 del mattino</b>, il sabato alle 8. Poi si chiude alle 14:30 e si riapre alle 17, fino a mezzanotte. La domenica siamo aperti solo la sera, dalle 17.</p></details>
+      <details><summary data-i18n="faq.q2">Fate colazione?</summary><p data-i18n="faq.a2">Sì. Alle sette del mattino il banco è quello di un bar: caffè, cappuccino e brioche. È la parte di noi che quasi nessuno si aspetta.</p></details>
+      <details><summary data-i18n="faq.q3">C'è un menù del giorno?</summary><p data-i18n="faq.a3">Sì, ed è scritto sulla lavagna in sala: <b>piatto unico 9 €</b>, <b>menù completo 10 €</b>, bevande escluse. Cambia, quindi conviene chiamare per sapere cosa c'è oggi.</p></details>
+      <details><summary data-i18n="faq.q4">Si può stare fuori?</summary><p data-i18n="faq.a4">Sì, ci sono tavolini e sgabelli sul marciapiede davanti al locale, sotto la tenda.</p></details>
+      <details><summary data-i18n="faq.q5">Bisogna prenotare?</summary><p data-i18n="faq.a5">La sala è grande e spesso si trova posto anche senza, ma nelle sere piene la prenotazione è consigliata: basta una telefonata.</p></details>
+      <details><summary data-i18n="faq.q6">Avete birre artigianali?</summary><p data-i18n="faq.a6">Sì, oltre alle spine classiche teniamo una selezione di birre artigianali, e dietro al banco c'è anche la parte cocktail: lo spritz è a 3 €.</p></details>
+    </div>
+  </section>
+
+</main>
+
+<footer class="chiusa">
+  <div class="chiusa__riga">
+    <div>
+      <p class="chiusa__nome">Moe's</p>
+      <p data-i18n="foot.ind">Via Privata Paolo Rotta 10<br>20162 Milano · Niguarda</p>
+      <p><a href="tel:+390239461172">02 39461172</a></p>
+    </div>
+    <div>
+      <p data-i18n="foot.orari">Lun–ven 07:00–14:30 · 17:00–00:00<br>Sab 08:00–13:00 · 17:00–00:00<br>Dom 17:00–00:00</p>
+    </div>
+  </div>
+  <p class="chiusa__nota" data-i18n="foot.nota">Sito dimostrativo realizzato da Bespoke Studio con dati pubblici della scheda Google. Prezzi e disponibilità da confermare in sede.</p>
+</footer>
+
+<div class="barra" id="actionBar">
+  <a href="tel:+390239461172" data-i18n="bar.chiama">Chiama</a>
+  <a href="#carta" data-i18n="bar.carta">Le pizze</a>
+  <a href="#dove" data-i18n="bar.dove">Dove</a>
+</div>
+
+<div id="lightbox" class="lightbox" hidden>
+  <button type="button" id="lightboxClose" class="lightbox__x" aria-label="Chiudi">×</button>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="js/main.js?v=1"></script>
+</body>
+</html>
